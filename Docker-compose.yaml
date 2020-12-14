@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  task-service-tagger:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    image: task-service-tagger
+    container_name: task-service-tagger
+    restart: unless-stopped
+    ports:
+      - "5002:5002"
+    networks:
+      - task-network
+networks:
+  task-network:
+    external: true
